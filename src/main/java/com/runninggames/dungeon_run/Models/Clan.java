@@ -26,4 +26,7 @@ public class Clan {
     @Size(max = 12)
     private List<User> clan_members;
 
+    @OneToMany(mappedBy = "clan")
+    private List<Message>clan_chat;
+
 }

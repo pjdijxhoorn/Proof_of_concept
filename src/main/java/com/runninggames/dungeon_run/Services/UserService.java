@@ -1,6 +1,7 @@
 package com.runninggames.dungeon_run.Services;
 
 import com.runninggames.dungeon_run.Dtos.UserInputDto;
+import com.runninggames.dungeon_run.Exceptions.BadRequestException;
 import com.runninggames.dungeon_run.Exceptions.InvalidPassWordException;
 import com.runninggames.dungeon_run.Models.User;
 import com.runninggames.dungeon_run.Repositories.UserRepository;

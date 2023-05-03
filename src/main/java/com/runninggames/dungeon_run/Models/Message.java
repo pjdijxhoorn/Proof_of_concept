@@ -1,9 +1,6 @@
 package com.runninggames.dungeon_run.Models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,6 +13,7 @@ import java.time.LocalDateTime;
 public class Message {
 
     @Id
+    @GeneratedValue
     private long id;
     private String text;
     private LocalDateTime time_send;
@@ -23,5 +21,8 @@ public class Message {
 
     @ManyToOne
     private User reciever;
+
+    @ManyToOne
+    private Clan clan;
 
 }

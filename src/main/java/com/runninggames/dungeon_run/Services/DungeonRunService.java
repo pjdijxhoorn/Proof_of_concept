@@ -22,8 +22,8 @@ public class DungeonRunService {
     }
 
 
-    public long createDungeonRun(DungeonRunInputDto dungeonRunInputDto, String id) {
-        User user = userRepository.findById(id).orElseThrow(() -> new RecordNotFoundException("no User found with id " + id));
+    public long createDungeonRun(DungeonRunInputDto dungeonRunInputDto, String user_id) {
+        User user = userRepository.findById(user_id).orElseThrow(() -> new RecordNotFoundException("no User found with id " + user_id));
 // dit moet ik nog vervangen voor de user die daadwerkelijk ingelogd is!
         DungeonRun dungeonRun = new DungeonRun();
         dungeonRun.setDate(LocalDateTime.now());

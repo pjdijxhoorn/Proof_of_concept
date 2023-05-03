@@ -1,5 +1,6 @@
 package com.runninggames.dungeon_run.Controllers;
 
+import com.runninggames.dungeon_run.Exceptions.BadRequestException;
 import com.runninggames.dungeon_run.Exceptions.InvalidPassWordException;
 import com.runninggames.dungeon_run.Exceptions.RecordNotFoundException;
 import org.springframework.http.HttpStatus;
@@ -17,6 +18,11 @@ public class ExceptionController {
 
     @ExceptionHandler(value = InvalidPassWordException.class)
     public ResponseEntity<Object> exception(InvalidPassWordException exception) {
-        return new ResponseEntity<>(exception.getMessage(), HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(exception.getMessage(), HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(value = BadRequestException.class)
+    public ResponseEntity<Object> exception(BadRequestException exception) {
+        return new ResponseEntity<>(exception.getMessage(), HttpStatus.BAD_REQUEST);
     }
 }

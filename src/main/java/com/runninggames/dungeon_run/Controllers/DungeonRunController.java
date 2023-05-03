@@ -24,13 +24,13 @@ public class DungeonRunController {
     }
 
 
-    @PostMapping("/{id}")
-    public ResponseEntity<String> CreateDungeonRun(@Valid @RequestBody DungeonRunInputDto dungeonRunInputDto, BindingResult br, @PathVariable String id){
+    @PostMapping("/{user_id}")
+    public ResponseEntity<String> CreateDungeonRun(@Valid @RequestBody DungeonRunInputDto dungeonRunInputDto, BindingResult br, @PathVariable String user_id){
         if (br.hasErrors()) {
             String errorString = getErrorString(br);
             return new ResponseEntity<>(errorString, HttpStatus.BAD_REQUEST);
         }
-        long createdId = dungeonRunService.createDungeonRun(dungeonRunInputDto, id);
+        long createdId = dungeonRunService.createDungeonRun(dungeonRunInputDto, user_id);
         URI uri = URI.create(
                 ServletUriComponentsBuilder
                         .fromCurrentContextPath()
